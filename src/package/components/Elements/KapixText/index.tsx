@@ -1,4 +1,4 @@
-import { ElementProps } from "../../../components/types";
+import { ElementProps } from "../../types";
 import React, { FunctionComponent } from "react";
 
 /**

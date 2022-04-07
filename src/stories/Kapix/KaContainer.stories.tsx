@@ -1,5 +1,5 @@
 import React from "react";
-import KaContainer from "../../package/components/Container";
+import KaContainer from "../../package/components/KapixContainer";
 import "../../styles/TEMP_stories.scss";
 import { ComponentStory } from "@storybook/react";
 import { KaImage } from "../../components/Elements/KaImage";

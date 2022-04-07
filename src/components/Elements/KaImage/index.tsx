@@ -1,11 +1,11 @@
-import Image from 'package/components/Elements/Image'
-import ElementWrapper from 'package/components/ElementWrapper'
-import { FullComponentProps } from 'package/components/types'
-import React from 'react'
+import Image from "package/components/Elements/KapixImage";
+import ElementWrapper from "package/components/KapixElement";
+import { FullComponentProps } from "package/components/types";
+import React from "react";
 
 export interface KaImageProps {
-  children: string
-  code: string
+  children: string;
+  code: string;
 }
 /**
  * @value a string or a stringified html component
@@ -19,5 +19,5 @@ export const KaImage = ({ children, code, options }: FullComponentProps) => {
       Element={Image}
       options={options}
     />
-  )
-}
+  );
+};

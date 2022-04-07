@@ -6,7 +6,7 @@ import { imgFitEnum } from "../../../constants/enums";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: "kapix-components-react/Image",
+  title: "kapix-components-react/KapixImage",
   component: Image,
 } as ComponentMeta<typeof Image>;
 
