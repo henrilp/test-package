@@ -1,32 +1,32 @@
-import React from 'react'
-import KaContainer from '../../package/components/Container'
-import '../../styles/TEMP_stories.scss'
-import { ComponentStory } from '@storybook/react'
-import { KaImage } from 'fullComponents/Elements/KaImage'
-import { KaButton } from 'fullComponents/Elements/KaButton'
-import { KaText } from 'fullComponents/Elements/KaText'
+import React from "react";
+import KaContainer from "../../package/components/Container";
+import "../../styles/TEMP_stories.scss";
+import { ComponentStory } from "@storybook/react";
+import { KaImage } from "../../components/Elements/KaImage";
+import { KaButton } from "../../components/Elements/KaButton";
+import { KaText } from "../../components/Elements/KaText";
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'pages/Odysseys',
+  title: "pages/Odysseys",
   component: KaContainer,
   decorators: [
     (Story: ComponentStory<any>) => (
       <div
         style={{
-          margin: '2rem',
+          margin: "2rem",
           marginTop: 0,
-          display: 'flex',
-          height: '100vh',
+          display: "flex",
+          height: "100vh",
         }}
       >
         <Story />
       </div>
     ),
   ],
-}
+};
 
-const kButton7Click = () => null
+const kButton7Click = () => null;
 
 export const Odysseys = () => (
   <KaContainer code="k-home" data="kHome" options={{ overflow: `y` }}>
@@ -73,7 +73,7 @@ export const Odysseys = () => (
               code="k-button-8"
               options={{
                 buttonIcon: `fab fa-youtube`,
-                style: { color: 'white' },
+                style: { color: "white" },
               }}
             >
               {`regarder la bande annonce`}
@@ -93,7 +93,7 @@ export const Odysseys = () => (
       </KaContainer>
     </KaContainer>
   </KaContainer>
-)
+);
 
 // <KaContainer
 //   code="k-unify-flex-row"
