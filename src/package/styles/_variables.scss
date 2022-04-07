@@ -1,0 +1,372 @@
+$primary-color: #3899ec;
+$kapix-color: rgb(255, 193, 7);
+
+$input-min-height: 33px;
+
+@mixin flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin flex-center-middle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin full-size {
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+@mixin overflow-y {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@mixin overflow-x {
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+@mixin text-no-wrap {
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin fixChromeBlur {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  //-webkit-font-smoothing: antialiased;
+}
+
+@mixin skeleton {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 4px;
+  position: relative;
+  &::after {
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: loading 1.5s infinite;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transform: translateX(-100%);
+    z-index: 1;
+  }
+  @keyframes loading {
+    100% {
+      transform: translateX(100%);
+    }
+  }
+}
+
+@mixin in-out {
+  animation-name: in-out;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.4, 1);
+  animation-iteration-count: infinite;
+
+  @keyframes in-out {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+}
+
+@mixin pulse {
+  animation-name: pulse;
+  animation-duration: 3s;
+  animation-timing-function: cubic-bezier(0.4, 0, 0.4, 1);
+  animation-iteration-count: infinite;
+  // width: auto !important;
+
+  @keyframes pulse {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+  }
+}
+
+@mixin float-vert {
+  animation-name: float-vert;
+  animation-duration: 3s;
+  animation-timing-function: cubic-bezier(0.6, 0, 0.4, 1);
+  animation-iteration-count: infinite;
+
+  @keyframes float-vert {
+    0% {
+      transform: translateY(0px);
+    }
+    50% {
+      transform: translateY(-30px);
+    }
+    100% {
+      transform: translateY(0px);
+    }
+  }
+}
+
+@mixin left-rotation {
+  animation-name: left-rotation;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  @keyframes left-rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
+@mixin right-rotation {
+  animation-name: right-rotation;
+  animation-duration: 4s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+
+  @keyframes right-rotation {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(-360deg);
+    }
+  }
+}
+
+@mixin beat {
+  animation-name: beat;
+  animation-duration: 2s;
+  animation-timing-function: cubic-bezier(0.2, 0, 0.4, 1);
+  animation-iteration-count: infinite;
+
+  @keyframes beat {
+    0% {
+      transform: scale(1);
+    }
+    10% {
+      transform: scale(1.1);
+    }
+    20% {
+      transform: scale(0.95);
+    }
+    30% {
+      transform: scale(1.1);
+    }
+    40% {
+      transform: scale(0.9);
+    }
+    50% {
+      transform: scale(1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}
+
+@mixin random {
+  animation: random 7s;
+  animation-iteration-count: infinite;
+
+  @keyframes random {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    4% {
+      transform: translate(2px, 2px) rotate(1deg);
+    }
+    12% {
+      transform: translate(-3px, 5px) rotate(1.5deg);
+    }
+    20% {
+      transform: translate(4px, 3px) rotate(1deg);
+    }
+    28% {
+      transform: translate(0px, -2px) rotate(-1.5deg);
+    }
+    36% {
+      transform: translate(-5px, 5px) rotate(3.5deg);
+    }
+    44% {
+      transform: translate(-2px, -3px) rotate(2.5deg);
+    }
+    52% {
+      transform: translate(-5px, 4px) rotate(-1.5deg);
+    }
+    60% {
+      transform: translate(2px, 0px) rotate(3.5deg);
+    }
+    68% {
+      transform: translate(4px, -2px) rotate(1deg);
+    }
+    76% {
+      transform: translate(3px, -5px) rotate(1.5deg);
+    }
+    84% {
+      transform: translate(4px, -1px) rotate(-1deg);
+    }
+    92% {
+      transform: translate(1px, 3px) rotate(-1deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+  }
+}
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 600px,
+  md: 960px,
+  lg: 1280px,
+  xl: 1920px,
+) !default;
+// Breakpoint viewport sizes and media queries.
+//
+// Breakpoints are defined as a map of (name: minimum width), order from small to large:
+//
+//    (xs: 0, sm: 599px, md: 768px, lg: 992px, xl: 1200px)
+//
+// The map defined in the `$grid-breakpoints` global variable is used as the `$breakpoints` argument by default.
+
+// Name of the next breakpoint, or null for the last breakpoint.
+//
+//    >> breakpoint-next(sm)
+//    md
+//    >> breakpoint-next(sm, (xs: 0, sm: 599px, md: 768px, lg: 992px, xl: 1200px))
+//    md
+//    >> breakpoint-next(sm, $breakpoint-names: (xs sm md lg xl))
+//    md
+@function breakpoint-next($name, $breakpoints: $grid-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
+  $n: index($breakpoint-names, $name);
+  @return if($n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+// Minimum breakpoint width. Null for the smallest (first) breakpoint.
+//
+//    >> breakpoint-min(sm, (xs: 0, sm: 599px, md: 768px, lg: 992px, xl: 1200px))
+//    599px
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min != 0, $min, null);
+}
+
+// Maximum breakpoint width. Null for the largest (last) breakpoint.
+// The maximum value is calculated as the minimum of the next one less 0.02px
+// to work around the limitations of `min-` and `max-` prefixes and viewports with fractional widths.
+// See https://www.w3.org/TR/mediaqueries-4/#mq-min-max
+// Uses 0.02px rather than 0.01px to work around a current rounding bug in Safari.
+// See https://bugs.webkit.org/show_bug.cgi?id=178261
+//
+//    >> breakpoint-max(sm, (xs: 0, sm: 599px, md: 768px, lg: 992px, xl: 1200px))
+//    767.98px
+@function breakpoint-max($name, $breakpoints: $grid-breakpoints) {
+  $next: breakpoint-next($name, $breakpoints);
+  @return if($next, breakpoint-min($next, $breakpoints) - 0.02px, null);
+}
+
+// Returns a blank string if smallest breakpoint, otherwise returns the name with a dash in front.
+// Useful for making responsive utilities.
+//
+//    >> breakpoint-infix(xs, (xs: 0, sm: 599px, md: 768px, lg: 992px, xl: 1200px))
+//    ""  (Returns a blank string)
+//    >> breakpoint-infix(sm, (xs: 0, sm: 599px, md: 768px, lg: 992px, xl: 1200px))
+//    "-sm"
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints) == null, "", "-#{$name}");
+}
+
+// Media of at least the minimum breakpoint width. No query for the smallest breakpoint.
+// Makes the @content apply to the given breakpoint and wider.
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media of at most the maximum breakpoint width. No query for the largest breakpoint.
+// Makes the @content apply to the given breakpoint and narrower.
+@mixin media-breakpoint-down($name, $breakpoints: $grid-breakpoints) {
+  $max: breakpoint-max($name, $breakpoints);
+  @if $max {
+    @media (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+// Media that spans multiple breakpoint widths.
+// Makes the @content apply between the min and max breakpoints
+@mixin media-breakpoint-between($lower, $upper, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($lower, $breakpoints);
+  $max: breakpoint-max($upper, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($lower, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($upper, $breakpoints) {
+      @content;
+    }
+  }
+}
+
+// Media between the breakpoint's minimum and maximum widths.
+// No minimum for the smallest breakpoint, and no maximum for the largest one.
+// Makes the @content apply only to the given breakpoint, not viewports any wider or narrower.
+@mixin media-breakpoint-only($name, $breakpoints: $grid-breakpoints) {
+  $min: breakpoint-min($name, $breakpoints);
+  $max: breakpoint-max($name, $breakpoints);
+
+  @if $min != null and $max != null {
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $max == null {
+    @include media-breakpoint-up($name, $breakpoints) {
+      @content;
+    }
+  } @else if $min == null {
+    @include media-breakpoint-down($name, $breakpoints) {
+      @content;
+    }
+  }
+}

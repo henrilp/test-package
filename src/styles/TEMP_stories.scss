@@ -1,0 +1,236 @@
+html,
+body,
+#app {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-size: inherit;
+}
+
+html {
+  font-family: open sans, Arial, helvetica neue, Helvetica, sans-serif;
+  font-size: 16px;
+  word-break: normal;
+  tab-size: 4;
+  line-height: 1.5;
+  overflow-x: hidden;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-text-size-adjust: 100%;
+}
+
+*,
+::before,
+::after {
+  background-repeat: no-repeat;
+  -webkit-box-sizing: inherit;
+  box-sizing: inherit;
+}
+
+* {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+  border-radius: 0;
+  border: none;
+  outline: none;
+  background: none;
+  -webkit-box-sizing: inherit;
+  -webkit-font-smoothing: antialiased;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  -webkit-padding-before: 0;
+  -webkit-padding-start: 0;
+  -webkit-padding-end: 0;
+  -webkit-padding-after: 0;
+}
+
+#nprogress {
+  pointer-events: none;
+}
+
+#nprogress .bar {
+  background-color: #ffc107;
+  position: fixed;
+  z-index: 1031;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+}
+@font-face {
+  font-family: "Arial Black";
+  src: url("styles/fonts/Arial-Black.ttf") format("truetype");
+}
+// Home
+.k-home {
+  &.outer-style {
+    background-image: url(https://ucarecdn.com/89a7333d-4554-4c1d-90e8-da523c362f06/-/preview/-/quality/smart/);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    min-height: 0;
+    min-width: 0;
+    z-index: 29;
+  }
+  &.inner-style {
+    height: 100%;
+  }
+}
+// Home > Sans titre
+.k-sans-titre {
+  &.outer-style {
+    background-image: url(https://ucarecdn.com/89a7333d-4554-4c1d-90e8-da523c362f06/-/preview/-/quality/smart/);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    min-height: 0;
+    min-width: 0;
+    z-index: 30;
+  }
+  &.inner-style {
+    height: 100%;
+  }
+}
+// Home > Sans titre > Conteneur
+.k-conteneur {
+  &.outer-style {
+    background-image: url(https://ucarecdn.com/d062b275-fdc7-4a6c-b4c0-ed3bdbaa834d/-/preview/-/quality/smart/);
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+    width: 100%;
+    min-height: 100%;
+    min-width: 0;
+    z-index: 30;
+  }
+}
+
+.k-unify-flex-row {
+  &.outer-style {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    padding: 0 40px 0 34px;
+    z-index: 25;
+  }
+  &.inner-style {
+    max-width: 758px;
+  }
+}
+// Home > Sans titre > Conteneur > Unify flex row > Image 1
+.k-image-1 {
+  &.outer-style {
+    background-size: contain;
+    width: 100%;
+    min-width: 0;
+    z-index: 30;
+    transform: scale(1.167, 1.167);
+  }
+}
+// Home > Sans titre > Conteneur > Unify flex row > Unify flex row
+.k-container-1 {
+  &.outer-style {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    padding: 26px 0 0 0;
+    z-index: 29;
+  }
+  &.inner-style {
+    max-width: 957px;
+  }
+}
+// Home > Sans titre > Conteneur > Unify flex row > Unify flex row > Button 1
+.k-button-7 {
+  &.outer-style {
+    &.state-hover {
+      .k-button-7 {
+        &.property-style {
+          color: #000000ff;
+          background: linear-gradient(90deg, #ab8343ff, #f3ead2ff, #c8a773ff);
+          opacity: 0.96;
+        }
+      }
+    }
+    width: 100%;
+    min-width: 0;
+    padding: 13px 5px 13px 5px;
+    z-index: 27;
+  }
+  &.property-style {
+    transition-property: background-color;
+    transition-duration: 0.1s;
+    transition-timing-function: ease;
+    color: #ffffffff;
+    background-color: #141412bf;
+    border: 2px solid #bfa251ff;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    box-shadow: 0px 1px 8px 0px rgba(0, 0, 0, 0.2), 0px 3px 4px 0px rgba(0, 0, 0, 0.14),
+      0px 3px 3px -2px rgba(0, 0, 0, 0.12);
+    padding: 5px 15px 5px 15px;
+    cursor: pointer;
+  }
+}
+// Home > Sans titre > Conteneur > Unify flex row > Unify flex row > Button 1
+.k-button-8 {
+  &.outer-style {
+    width: 100%;
+    min-width: 0;
+    padding: 13px 5px 13px 5px;
+    z-index: 26;
+  }
+  &.property-style {
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2), 0px 8px 10px rgba(0, 0, 0, 0.14), 0px 3px 14px rgba(0, 0, 0, 0.12);
+    text-transform: uppercase;
+    padding: 5px 15px 5px 15px;
+    cursor: pointer;
+  }
+}
+.k-texte {
+  &.outer-style {
+    width: 100%;
+    min-width: 0;
+    justify-content: center;
+    z-index: 29;
+  }
+  &.inner-style {
+    max-width: 1003px;
+  }
+  &.property-style {
+    overflow: hidden;
+    color: #ffffffff;
+    background: linear-gradient(100deg, #14141240, #1414129e, #14141238);
+    border-width: 2px 0 2px 0;
+    border-color: #bfa251ff;
+    border-style: ridge;
+    font-size: 32px;
+    font-family: TimesNewRoman, "Times New Roman", Times, Baskerville, Georgia, serif;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 15px 15px 15px 15px;
+  }
+}

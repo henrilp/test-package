@@ -1,0 +1,6 @@
+@import "../../../styles/_variables.scss";
+
+.kapix-image {
+  @include full-size;
+  max-width: 100%;
+}

@@ -1,0 +1,395 @@
+@import "./variables";
+
+.scroll-container {
+  @include full-size;
+  box-sizing: border-box;
+}
+.scroll-style {
+  @include full-size;
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  // align-items: flex-start;
+
+  /* scrollbar */
+  &::-webkit-scrollbar-thumb {
+    background-color: currentColor; // #6a7678
+    border-radius: 9px;
+    border: solid 6px transparent;
+    background-clip: content-box;
+    &:hover {
+      border-width: 5px;
+    }
+  }
+  // &::-webkit-scrollbar-button:horizontal:increment {
+  //   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEXM09b///8OmaLeAAAAAnRSTlP/AOW3MEoAAAAgSURBVHgBY2BEA+QLMGAIMGAIMGAIMBAUIGQoZU5HAwB+ZgDtGYq3fgAAAABJRU5ErkJggg==);
+  //   &:hover {
+  //     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEWdtMT///8YSU3FAAAAAnRSTlP/AOW3MEoAAAAgSURBVHgBY2BEA+QLMGAIMGAIMGAIMBAUIGQoZU5HAwB+ZgDtGYq3fgAAAABJRU5ErkJggg==);
+  //   }
+  // }
+  // &::-webkit-scrollbar-button:horizontal:decrement {
+  //   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEXM09b///8OmaLeAAAAAnRSTlP/AOW3MEoAAAAiSURBVHgBY2BEAxQJMKAJMKAJMKAJMOATgIkQMBTBooZfAH56AO2yINTrAAAAAElFTkSuQmCC);
+  //   &:hover {
+  //     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEWdtMT///8YSU3FAAAAAnRSTlP/AOW3MEoAAAAiSURBVHgBY2BEAxQJMKAJMKAJMKAJMOATgIkQMBTBooZfAH56AO2yINTrAAAAAElFTkSuQmCC);
+  //   }
+  // }
+  // &::-webkit-scrollbar-button:vertical:increment {
+  //   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEXM09b///8OmaLeAAAAAnRSTlP/AOW3MEoAAAAfSURBVHgBY2BEA7QTYIAChAoYH6EFxkeYwQBj0MelAH3GAO2C9+AaAAAAAElFTkSuQmCC);
+  //   &:hover {
+  //     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEWdtMT///8YSU3FAAAAAnRSTlP/AOW3MEoAAAAfSURBVHgBY2BEA7QTYIAChAoYH6EFxkeYwQBj0MelAH3GAO2C9+AaAAAAAElFTkSuQmCC);
+  //   }
+  // }
+  // &::-webkit-scrollbar-button:vertical:decrement {
+  //   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEXM09b///8OmaLeAAAAAnRSTlP/AOW3MEoAAAAgSURBVHgBY2BEAzQVYIAzYHwGGAvOZ4AyIXyECH1cCgB/GgDtpWTgqAAAAABJRU5ErkJggg==);
+  //   &:hover {
+  //     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAABlBMVEWdtMT///8YSU3FAAAAAnRSTlP/AOW3MEoAAAAgSURBVHgBY2BEAzQVYIAzYHwGGAvOZ4AyIXyECH1cCgB/GgDtpWTgqAAAAABJRU5ErkJggg==);
+  //   }
+  // }
+  &::-webkit-scrollbar {
+    height: 18px;
+    width: 18px;
+    @include media-breakpoint-down(xs) {
+      height: 0;
+      width: 0;
+    }
+  }
+  &::-webkit-scrollbar:disabled {
+    display: none;
+  }
+  &::-webkit-scrollbar-button,
+  ::-webkit-scrollbar-corner {
+    cursor: pointer;
+    background: transparent;
+  }
+  &::-webkit-scrollbar-button:horizontal:decrement,
+  &::-webkit-scrollbar-button:horizontal:increment,
+  &::-webkit-scrollbar-button:vertical:decrement,
+  &::-webkit-scrollbar-button:vertical:increment {
+    // height: 18px;
+    // width: 18px;
+    // background-position: 50%;
+    display: none;
+  }
+  &::-webkit-scrollbar-button:vertical:start:increment,
+  &::-webkit-scrollbar-button:vertical:end:decrement,
+  &::-webkit-scrollbar-button:horizontal:start:increment,
+  &::-webkit-scrollbar-button:horizontal:end:decrement {
+    display: none;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb:vertical {
+    min-height: 50px;
+  }
+  &::-webkit-scrollbar-thumb:horizontal {
+    min-width: 50px;
+  }
+
+  // flex
+  &.ka-flex-column {
+    @include flex-column;
+    flex-wrap: nowrap;
+    align-content: inherit;
+    align-items: inherit;
+  }
+  &.ka-flex-row {
+    @include flex-row;
+    flex-wrap: nowrap;
+    align-content: inherit;
+    align-items: inherit;
+  }
+
+  // overflow
+  &.a-overflow-x {
+    > .outer-style {
+      float: none;
+      display: inline-block;
+    }
+  }
+  &.a-overflow-y {
+    @include overflow-y;
+  }
+  &.a-overflow-x {
+    @include overflow-x;
+  }
+  &.a-overflow-auto {
+    overflow: auto;
+  }
+  &.a-overflow-hidden {
+    overflow: hidden;
+  }
+
+  // common
+  .a-text-center {
+    text-align: center;
+  }
+}
+
+.scroll-container-background {
+  @include full-size;
+  position: fixed;
+  display: block;
+  opacity: 1;
+  object-fit: cover;
+  // pointer-events: none;
+  top: 0;
+  z-index: 0;
+}
+
+.outer-style {
+  @include fixChromeBlur;
+  position: relative;
+  display: flex;
+  float: left;
+  scroll-snap-align: start;
+  box-sizing: border-box;
+  // &.kapix-simple {
+  //   @include fixChromeBlur;
+  //   box-sizing: border-box;
+  // }
+  &.a-disabled {
+    user-select: none;
+    opacity: 0.5;
+    cursor: default;
+    * {
+      cursor: default;
+    }
+  }
+  &.ka-block-css-images {
+    background-image: none !important;
+    * {
+      background-image: none !important;
+    }
+  }
+  &.ka-delay-hidden {
+    opacity: 0 !important;
+    > .inner-style {
+      * {
+        pointer-events: none;
+      }
+    }
+  }
+  &.ka-delay-hidden:not(#\ ):not(#\ ):not(#\ ):not(#\ ) {
+    animation-name: hidden;
+    animation-duration: 1.2s; // 1.1 because animated animation duration is 1s
+    animation-fill-mode: both;
+    > .inner-style {
+      * {
+        pointer-events: none;
+      }
+    }
+  }
+  @keyframes hidden {
+    50% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
+  }
+  &.ka-display-none {
+    display: none;
+  }
+  &.ka-delay-display-none:not(#\ ):not(#\ ):not(#\ ):not(#\ ) {
+    animation-name: displayNone;
+    animation-delay: 1.1s; // 1.1 because animated animation duration is 1s
+    animation-fill-mode: both;
+    pointer-events: none;
+  }
+  @keyframes displayNone {
+    100% {
+      opacity: 0;
+      height: 0;
+      width: 0;
+    }
+  }
+}
+
+.inner-style {
+  transform: translateZ(0);
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 0;
+  min-width: 0;
+
+  &.clickable {
+    cursor: pointer;
+  }
+}
+
+@mixin label-left {
+  @include text-no-wrap;
+  margin-right: 5px;
+}
+@mixin label-right {
+  @include text-no-wrap;
+  margin-left: 5px;
+}
+
+.label-container {
+  @include full-size;
+  @include flex-column;
+
+  .label-style {
+    pointer-events: auto;
+    min-height: 25px;
+    &.help-cursor {
+      cursor: help;
+    }
+  }
+
+  &.ka-top {
+    @include flex-column;
+    > .property-label {
+      @include text-no-wrap;
+      padding-bottom: 2px;
+      height: initial;
+      margin: 0;
+    }
+  }
+  &.ka-top-center {
+    @include flex-column;
+    > .property-label {
+      @include text-no-wrap;
+      padding-bottom: 2px;
+      height: initial;
+      margin: 0;
+      text-align: center;
+    }
+  }
+  &.ka-left {
+    @include flex-row;
+    > .label-style {
+      @include label-left;
+    }
+  }
+  &.ka-left-center {
+    @include flex-row;
+    align-items: center;
+    > .label-style {
+      @include label-left;
+      flex-shrink: 0;
+    }
+    > .property-style {
+      > .clear-btn {
+        align-self: center;
+      }
+    }
+  }
+  &.ka-left-center-full {
+    @include flex-row;
+    align-items: center;
+    justify-content: space-between;
+    > .label-style {
+      @include label-left;
+    }
+    > .property-style {
+      width: auto;
+      flex-shrink: 0;
+      > .clear-btn {
+        align-self: center;
+      }
+    }
+  }
+  &.ka-right-center {
+    @include flex-row;
+    align-items: center;
+    flex-flow: row-reverse;
+    justify-content: left;
+    > .label-style {
+      @include label-right;
+    }
+    > .property-style {
+      width: auto;
+      flex: none;
+      > .clear-btn {
+        align-self: center;
+      }
+    }
+  }
+}
+
+.label-style {
+  pointer-events: auto;
+  min-height: 25px;
+  &.help-cursor {
+    cursor: help;
+  }
+}
+
+.property-style {
+  @include full-size;
+  position: relative;
+  display: flex;
+  align-items: center;
+  & a {
+    color: inherit;
+    cursor: inherit;
+    text-decoration: inherit;
+  }
+  &.clearable {
+    @include flex-row;
+  }
+  ul {
+    padding-left: 24px;
+  }
+}
+
+.perpetual-animation {
+  &.in-out {
+    @include in-out;
+  }
+  &.pulse {
+    @include pulse;
+  }
+  &.float-vert {
+    @include float-vert;
+  }
+  &.left-rotation {
+    @include left-rotation;
+  }
+  &.right-rotation {
+    @include right-rotation;
+  }
+  &.beat {
+    @include beat;
+  }
+  &.random {
+    @include random;
+  }
+}
+
+.template-style {
+  // position: relative;
+  flex: auto;
+  min-width: 0;
+  min-height: 10px;
+  &.skeleton {
+    @include skeleton;
+  }
+}
+
+.ka-fit-none:not(#\ ) {
+  object-fit: none;
+}
+
+.ka-fit-contain:not(#\ ) {
+  object-fit: contain;
+}
+
+.ka-fit-cover:not(#\ ) {
+  object-fit: cover;
+}
+
+.ka-fit-fill:not(#\ ) {
+  object-fit: fill;
+}
+
+.ka-fit-scale-down:not(#\ ) {
+  object-fit: scale-down;
+}

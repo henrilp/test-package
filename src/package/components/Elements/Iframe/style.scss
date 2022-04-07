@@ -1,0 +1,9 @@
+@import "../../../styles/_variables.scss";
+
+.kapix-frame {
+  @include full-size;
+  iframe {
+    @include full-size;
+    min-height: 590px;
+  }
+}

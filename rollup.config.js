@@ -2,6 +2,7 @@ import resolve from "@rollup/plugin-node-resolve";
 import commonjs from "@rollup/plugin-commonjs";
 import typescript from "@rollup/plugin-typescript";
 import dts from "rollup-plugin-dts";
+import scss from "rollup-plugin-scss";
 
 const packageJson = require("./package.json");
 
@@ -24,11 +25,14 @@ export default [
       resolve(),
       commonjs(),
       typescript({ tsconfig: "./tsconfig.json" }),
+      scss(),
     ],
   },
+  // this below is for types
   {
     input: "dist/esm/types/index.d.ts",
     output: [{ file: "dist/index.d.ts", format: "esm" }],
+    external: [/\.scss$/, /\.stories.tsx$/], // ignore .scss file and stories
     plugins: [dts()],
   },
 ];
